@@ -1,0 +1,29 @@
+<songs>
+	<song>
+		<id>1</id>
+		<name>Too Close</name>
+		<length>300</length>
+		<isBegin>false</isBegin>
+		<isEnd>false</isEnd>
+		<balladVal>1</balladVal>
+		<heavyVal>4</heavyVal>
+	</song>
+	<song>
+		<id>2</id>
+		<name>Let It Rain</name>
+		<length>240</length>
+		<isBegin>false</isBegin>
+		<isEnd>false</isEnd>
+		<balladVal>5</balladVal>
+		<heavyVal>1</heavyVal>
+	</song>
+		<song>
+		<id>3</id>
+		<name>Nice Girls</name>
+		<length>240</length>
+		<isBegin>true</isBegin>
+		<isEnd>false</isEnd>
+		<balladVal>1</balladVal>
+		<heavyVal>3</heavyVal>
+	</song>
+</songs>
