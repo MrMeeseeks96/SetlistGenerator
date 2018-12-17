@@ -116,7 +116,7 @@ namespace SetlistGenerator
 
         public void InitializeSonglist()
         {
-            XDocument songsXml = XDocument.Load("../../../songs.xml");
+            XDocument songsXml = XDocument.Load("../../resources/songs.xml");
 
             songs =
                 songsXml.Root.Elements("song")
