@@ -104,12 +104,100 @@ namespace SetlistGenerator
 
             setlist.Add(BeginSetlist());
 
-            //Here comes the algorithm
+            Song lastSong = null;
+            int r;
+            Song currentSong;
 
-            if(IsSongFinal())
+            do
             {
-                setlist.Add(EndSetlist());
+                List<Song> currentOptions = new List<Song>();
+
+                //Choose second song
+                if (1 == setlist.Count && !IsSongFinal())
+                {
+                    for (int i = 0; i < songs.Count; i++)
+                    {
+                        if (songs[i].GetHeavyVal() > 3 && songs[i].GetBalladVal() < 2)
+                        {
+                            currentOptions.Add(songs[i]);
+                        }
+                    }
+                    r = rand.Next(currentOptions.Count);
+                    currentSong = currentOptions[r];
+
+                    if (!currentSong.isSetlistEnd)
+                    {
+                        setlist.Add(currentSong);
+                        lastSong = currentSong;
+
+                        AddTime(currentSong.GetLength());
+                        DeleteSong(currentSong.GetId());
+                    }
+                }
+
+                //choose third song
+                if (2 == setlist.Count && !IsSongFinal())
+                {
+                    r = rand.Next(songs.Count);
+                    currentSong = songs[r];
+
+                    if (!currentSong.isSetlistEnd)
+                    {
+                        setlist.Add(currentSong);
+                        lastSong = currentSong;
+
+                        AddTime(currentSong.GetLength());
+                        DeleteSong(currentSong.GetId());
+                    }
+                }
+               
+                //choose song four to x
+                if (lastSong.GetBalladVal() >= 3 && !IsSongFinal())
+                {
+                    for (int i = 0; i < songs.Count; i++)
+                    {
+                        if (songs[i].GetHeavyVal() >= 3 && songs[i].GetBalladVal() <= 2)
+                        {
+                            currentOptions.Add(songs[i]);
+                        }
+                    }
+
+                    if (0 == currentOptions.Count)
+                    {
+                        break;
+                    }
+
+                    r = rand.Next(currentOptions.Count);
+                    currentSong = currentOptions[r];
+
+                    if (!currentSong.isSetlistEnd)
+                    {
+                        setlist.Add(currentSong);
+                        lastSong = currentSong;
+
+                        AddTime(currentSong.GetLength());
+                        DeleteSong(currentSong.GetId());
+                    }
+                }
+                else if (lastSong.GetBalladVal() <= 2 && !IsSongFinal())
+                {
+                    r = rand.Next(songs.Count);
+                    currentSong = songs[r];
+
+                    if (!currentSong.isSetlistEnd)
+                    {
+                        setlist.Add(currentSong);
+                        lastSong = currentSong;
+
+                        AddTime(currentSong.GetLength());
+                        DeleteSong(currentSong.GetId());
+                    }
+                }
             }
+            while (!IsSongFinal() || 1 == songs.Count());
+       
+            setlist.Add(EndSetlist());
+         
 
             return setlist;
         }

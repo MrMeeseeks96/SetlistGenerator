@@ -10,7 +10,7 @@ namespace SetlistGenerator
     {
         static void Main(string[] args)
         {
-            BuildSetlist setlist = new BuildSetlist(1000);
+            BuildSetlist setlist = new BuildSetlist(1000000);
 
             setlist.InitializeSonglist();
 

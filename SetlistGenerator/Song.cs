@@ -36,5 +36,15 @@ namespace SetlistGenerator
         {
             return this.id;
         }
+
+        public int GetHeavyVal()
+        {
+            return this.heavyVal;
+        }
+
+        public int GetBalladVal()
+        {
+            return this.balladVal;
+        }
     }
 }
