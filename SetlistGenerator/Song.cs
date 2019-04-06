@@ -37,6 +37,11 @@ namespace SetlistGenerator
             return this.id;
         }
 
+        public String GetName()
+        {
+            return this.name;
+        }
+
         public int GetHeavyVal()
         {
             return this.heavyVal;

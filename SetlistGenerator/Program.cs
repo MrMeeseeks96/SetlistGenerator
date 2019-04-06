@@ -3,18 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SetlistGenerator
 {
     class Program
     {
+        [STAThread]
         static void Main(string[] args)
         {
-            BuildSetlist setlist = new BuildSetlist(1000000);
+            Application.EnableVisualStyles();
+            Application.Run(new MainForm());
 
-            setlist.InitializeSonglist();
+/*
+            Button go = new Button { Left = 10, Top = 10, Text = "Start" };
 
-            setlist.FillSetlist();
+            mainFrame.Controls.Add(go);
+
+            mainFrame.ShowDialog();         */   
         }
     }
 }

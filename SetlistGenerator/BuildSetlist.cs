@@ -194,7 +194,7 @@ namespace SetlistGenerator
                     }
                 }
             }
-            while (!IsSongFinal() || 1 == songs.Count());
+            while (!IsSongFinal() && songs.Count() > 1);
        
             setlist.Add(EndSetlist());
          
@@ -202,9 +202,9 @@ namespace SetlistGenerator
             return setlist;
         }
 
-        public void InitializeSonglist()
+        public void InitializeSonglist(String path)
         {
-            XDocument songsXml = XDocument.Load("../../resources/songs.xml");
+            XDocument songsXml = XDocument.Load(path);
 
             songs =
                 songsXml.Root.Elements("song")
