@@ -117,7 +117,7 @@ namespace SetlistGenerator
                 {
                     for (int i = 0; i < songs.Count; i++)
                     {
-                        if (songs[i].GetHeavyVal() > 3 && songs[i].GetBalladVal() < 2)
+                        if (songs[i].GetBalladVal() < 2)
                         {
                             currentOptions.Add(songs[i]);
                         }
@@ -150,13 +150,13 @@ namespace SetlistGenerator
                         DeleteSong(currentSong.GetId());
                     }
                 }
-               
+
                 //choose song four to x
                 if (lastSong.GetBalladVal() >= 3 && !IsSongFinal())
                 {
                     for (int i = 0; i < songs.Count; i++)
                     {
-                        if (songs[i].GetHeavyVal() >= 3 && songs[i].GetBalladVal() <= 2)
+                        if (songs[i].GetHeavyVal() >= 3)
                         {
                             currentOptions.Add(songs[i]);
                         }
@@ -192,6 +192,20 @@ namespace SetlistGenerator
                         AddTime(currentSong.GetLength());
                         DeleteSong(currentSong.GetId());
                     }
+                }
+
+                int lefotovercount = 0;
+                for (int i = 0; i < songs.Count(); i++)
+                {
+                    if (!songs[i].isSetlistEnd)
+                    {
+                        lefotovercount++;
+                    }
+                }
+
+                if (lefotovercount == 0)
+                {
+                    break;
                 }
             }
             while (!IsSongFinal() && songs.Count() > 1);

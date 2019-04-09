@@ -24,6 +24,7 @@ namespace SetlistGenerator
             setlist.InitializeSonglist(filePath.Text);
 
             List<Song> orderedSetlist = setlist.FillSetlist();
+            //To-Do: Fill setlist in listview
             for (int i = 0; i < orderedSetlist.Count; i++)
             {
                 setlistView.Columns.Add("" + i + 1, "" + orderedSetlist[i].GetName());
