@@ -24,11 +24,8 @@ namespace SetlistGenerator
             setlist.InitializeSonglist(filePath.Text);
 
             List<Song> orderedSetlist = setlist.FillSetlist();
-            //To-Do: Fill setlist in listview
-            for (int i = 0; i < orderedSetlist.Count; i++)
-            {
-                setlistView.Columns.Add("" + i + 1, "" + orderedSetlist[i].GetName());
-            }
+
+            showSetlist(orderedSetlist);
         }
         private void browse_Click(object sender, EventArgs e)
         {
@@ -44,6 +41,16 @@ namespace SetlistGenerator
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void showSetlist(List<Song> setlist)
+        {
+            setlistView.View = View.Details;
+
+            for (int i = 0; i < setlist.Count; i++)
+            {
+                setlistView.Items.Add(new ListViewItem(new string[] { "" + (i + 1), "" + setlist[i].GetName() }));
+            }
         }
     }
 }

@@ -82,6 +82,7 @@
             // song
             // 
             this.song.Text = "Song";
+            this.song.Width = 600;
             // 
             // MainForm
             // 
