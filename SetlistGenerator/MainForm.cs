@@ -28,13 +28,14 @@ namespace SetlistGenerator
          * */
         private void go_Click(object sender, EventArgs e)
         {
-            BuildSetlist setlist = new BuildSetlist(1000000);
+            int lenght = Int32.Parse(textBoxLength.Text);
+            BuildSetlist setlist = new BuildSetlist(lenght);
 
             setlist.InitializeSonglist(filePath.Text);
 
             List<Song> orderedSetlist = setlist.FillSetlist();
 
-            showSetlist(orderedSetlist);
+            showList(orderedSetlist, setlistView);
         }
 
         /**
@@ -51,6 +52,11 @@ namespace SetlistGenerator
             {
                 string fp = getFilePath.FileName;
                 filePath.Text = fp;
+
+                BuildSetlist setlist = new BuildSetlist(1);
+                setlist.InitializeSonglist(filePath.Text);
+                List<Song> songlist = setlist.GetSonglist();
+                showList(songlist, songlistView);
             }
         }
 
@@ -60,16 +66,17 @@ namespace SetlistGenerator
         }
 
         /**
-         * <summary>Will show the ordered setlist numbered and with name of the songs in a listview</summary>
+         * <summary>Will show a list numbered and with name of the songs in a listview</summary>
          * <param name="setlist">The ordered setlist to show</param>
+         * <param name="v">The listview in which the data will be shown</param>
          * */
-        private void showSetlist(List<Song> setlist)
+        private void showList(List<Song> setlist, ListView v)
         {
-            setlistView.View = View.Details;
+            v.View = View.Details;
 
             for (int i = 0; i < setlist.Count; i++)
             {
-                setlistView.Items.Add(new ListViewItem(new string[] { "" + (i + 1), "" + setlist[i].GetName() }));
+                v.Items.Add(new ListViewItem(new string[] { "" + (i + 1), "" + setlist[i].GetName() }));
             }
         }
     }

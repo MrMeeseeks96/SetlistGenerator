@@ -23,7 +23,7 @@ namespace SetlistGenerator
          * */
         public BuildSetlist(int fullSetlistLength)
         {
-            this.fullSetlistLength = fullSetlistLength;
+            SetFullSetlistLength(fullSetlistLength);
         }
 
         /**
@@ -279,7 +279,10 @@ namespace SetlistGenerator
          * */
         public void SetFullSetlistLength(int fullSetlistLength)
         {
-            this.fullSetlistLength = fullSetlistLength;
+            if(fullSetlistLength > 0)
+            {
+                this.fullSetlistLength = fullSetlistLength;
+            }
         }
 
         /**
@@ -289,6 +292,15 @@ namespace SetlistGenerator
         public int GetFullSetlistLength()
         {
             return this.fullSetlistLength;
+        }
+
+        /**
+         * <summary>Getter for the full songlist</summary>
+         * <returns>Returns the full songlist</returns>
+         * */
+        public List<Song> GetSonglist()
+        {
+            return this.songs;
         }
     }
 }
