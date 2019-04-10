@@ -14,13 +14,6 @@ namespace SetlistGenerator
         {
             Application.EnableVisualStyles();
             Application.Run(new MainForm());
-
-/*
-            Button go = new Button { Left = 10, Top = 10, Text = "Start" };
-
-            mainFrame.Controls.Add(go);
-
-            mainFrame.ShowDialog();         */   
         }
     }
 }
