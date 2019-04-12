@@ -35,18 +35,25 @@
             this.number = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.song = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.songlistView = new System.Windows.Forms.ListView();
-            this.textBoxLength = new System.Windows.Forms.TextBox();
-            this.time = new System.Windows.Forms.Label();
             this.songlistNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.songlistName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.textBoxLength = new System.Windows.Forms.TextBox();
+            this.time = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.songlistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.songlistToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // go
             // 
             this.go.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.go.Location = new System.Drawing.Point(350, 280);
+            this.go.Location = new System.Drawing.Point(449, 322);
             this.go.Name = "go";
-            this.go.Size = new System.Drawing.Size(101, 23);
+            this.go.Size = new System.Drawing.Size(101, 24);
             this.go.TabIndex = 0;
             this.go.Text = "Start";
             this.go.UseVisualStyleBackColor = true;
@@ -56,16 +63,15 @@
             // 
             this.filePath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.filePath.Location = new System.Drawing.Point(13, 13);
+            this.filePath.Location = new System.Drawing.Point(13, 30);
             this.filePath.Name = "filePath";
-            this.filePath.Size = new System.Drawing.Size(686, 20);
+            this.filePath.Size = new System.Drawing.Size(885, 20);
             this.filePath.TabIndex = 1;
-            this.filePath.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // browse
             // 
             this.browse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.browse.Location = new System.Drawing.Point(713, 13);
+            this.browse.Location = new System.Drawing.Point(912, 27);
             this.browse.Name = "browse";
             this.browse.Size = new System.Drawing.Size(75, 23);
             this.browse.TabIndex = 2;
@@ -80,20 +86,21 @@
             this.setlistView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.number,
             this.song});
-            this.setlistView.Location = new System.Drawing.Point(457, 39);
+            this.setlistView.Location = new System.Drawing.Point(556, 56);
             this.setlistView.Name = "setlistView";
-            this.setlistView.Size = new System.Drawing.Size(331, 399);
+            this.setlistView.Size = new System.Drawing.Size(431, 563);
             this.setlistView.TabIndex = 3;
             this.setlistView.UseCompatibleStateImageBehavior = false;
             // 
             // number
             // 
             this.number.Text = "No.";
+            this.number.Width = 29;
             // 
             // song
             // 
             this.song.Text = "Song";
-            this.song.Width = 600;
+            this.song.Width = 280;
             // 
             // songlistView
             // 
@@ -102,16 +109,26 @@
             this.songlistView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.songlistNumber,
             this.songlistName});
-            this.songlistView.Location = new System.Drawing.Point(13, 39);
+            this.songlistView.Location = new System.Drawing.Point(13, 56);
             this.songlistView.Name = "songlistView";
-            this.songlistView.Size = new System.Drawing.Size(331, 399);
+            this.songlistView.Size = new System.Drawing.Size(430, 563);
             this.songlistView.TabIndex = 4;
             this.songlistView.UseCompatibleStateImageBehavior = false;
+            // 
+            // songlistNumber
+            // 
+            this.songlistNumber.Text = "No.";
+            this.songlistNumber.Width = 29;
+            // 
+            // songlistName
+            // 
+            this.songlistName.Text = "Name";
+            this.songlistName.Width = 280;
             // 
             // textBoxLength
             // 
             this.textBoxLength.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.textBoxLength.Location = new System.Drawing.Point(350, 190);
+            this.textBoxLength.Location = new System.Drawing.Point(449, 296);
             this.textBoxLength.Name = "textBoxLength";
             this.textBoxLength.Size = new System.Drawing.Size(101, 20);
             this.textBoxLength.TabIndex = 5;
@@ -120,25 +137,65 @@
             // 
             this.time.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.time.AutoSize = true;
-            this.time.Location = new System.Drawing.Point(351, 171);
+            this.time.Location = new System.Drawing.Point(449, 256);
             this.time.Name = "time";
-            this.time.Size = new System.Drawing.Size(71, 13);
+            this.time.Size = new System.Drawing.Size(70, 26);
             this.time.TabIndex = 6;
-            this.time.Text = "Setlist Length";
+            this.time.Text = "Setlist length \r\nin minutes:";
             // 
-            // songlistNumber
+            // menuStrip1
             // 
-            this.songlistNumber.Text = "No.";
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(999, 24);
+            this.menuStrip1.TabIndex = 7;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // songlistName
+            // fileToolStripMenuItem
             // 
-            this.songlistName.Text = "Name";
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newToolStripMenuItem,
+            this.openToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // newToolStripMenuItem
+            // 
+            this.newToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.songlistToolStripMenuItem});
+            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newToolStripMenuItem.Text = "New";
+            // 
+            // songlistToolStripMenuItem
+            // 
+            this.songlistToolStripMenuItem.Name = "songlistToolStripMenuItem";
+            this.songlistToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.songlistToolStripMenuItem.Text = "Songlist";
+            this.songlistToolStripMenuItem.Click += new System.EventHandler(this.songlistToolStripMenuItem_Click);
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.songlistToolStripMenuItem1});
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Text = "Open";
+            // 
+            // songlistToolStripMenuItem1
+            // 
+            this.songlistToolStripMenuItem1.Name = "songlistToolStripMenuItem1";
+            this.songlistToolStripMenuItem1.Size = new System.Drawing.Size(116, 22);
+            this.songlistToolStripMenuItem1.Text = "Songlist";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(999, 631);
             this.Controls.Add(this.time);
             this.Controls.Add(this.textBoxLength);
             this.Controls.Add(this.songlistView);
@@ -146,8 +203,12 @@
             this.Controls.Add(this.browse);
             this.Controls.Add(this.filePath);
             this.Controls.Add(this.go);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
-            this.Text = "MainForm";
+            this.Text = "Setlist Generator";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -166,5 +227,11 @@
         private System.Windows.Forms.Label time;
         private System.Windows.Forms.ColumnHeader songlistNumber;
         private System.Windows.Forms.ColumnHeader songlistName;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem songlistToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem songlistToolStripMenuItem1;
     }
 }
